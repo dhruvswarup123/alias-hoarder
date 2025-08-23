@@ -6,9 +6,11 @@ Hi. I have a problem. An incessant need to automate everything.
 
 Anyway, this repo contains everything to configure my workflow.
 
-## Zsh Setup
+## Zsh
 
 Install zsh with Oh My Zsh, Starship prompt, and plugins:
+
+![Zsh Setup](images/zsh_setup.png)
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/dhruvswarup123/alias-hoarder/main/zsh/install.sh | bash
@@ -17,9 +19,11 @@ curl -fsSL https://raw.githubusercontent.com/dhruvswarup123/alias-hoarder/main/z
 wget -qO- https://raw.githubusercontent.com/dhruvswarup123/alias-hoarder/main/zsh/install.sh | bash
 ```
 
-## Tmux Setup
+## Tmux
 
 Install tmux with custom configuration and plugins:
+
+![Tmux Setup](images/tmux_setup.png)
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/dhruvswarup123/alias-hoarder/main/tmux/install.sh | bash
