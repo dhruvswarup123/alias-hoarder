@@ -13,9 +13,6 @@ else
   INSTALL_MODE="web"
 fi
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}" 2>/dev/null || dirname "$0")" && pwd)"
-UTILS_PATH="$SCRIPT_DIR/../utils.sh"
-
 if [ "$INSTALL_MODE" = "web" ]; then
   if command -v curl >/dev/null 2>&1; then
     curl -fsSL "$UTILS_URL" -o /tmp/utils.sh
@@ -26,6 +23,9 @@ if [ "$INSTALL_MODE" = "web" ]; then
     exit 1
   fi
   UTILS_PATH="/tmp/utils.sh"
+else
+  SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]:-$0}")" && pwd)"
+  UTILS_PATH="$SCRIPT_DIR/../utils.sh"
 fi
 
 . "$UTILS_PATH"
@@ -49,7 +49,7 @@ BAK=$(backup_file "$TARGET")
 print_status "[2/5] Installing new config..."
 if [ "$INSTALL_MODE" = "local" ]; then
 
-  SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
   LOCAL_CONF="$SCRIPT_DIR/tmux.conf"
   print_status "  Looking for config in: $SCRIPT_DIR"
   if [ -f "$LOCAL_CONF" ]; then

@@ -12,13 +12,12 @@ else
   INSTALL_MODE="web"
 fi
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}" 2>/dev/null || dirname "$0")" && pwd)"
 OH_MY_ZSH_DIR="$HOME/.oh-my-zsh"
 ZSH_CUSTOM_PLUGINS="$OH_MY_ZSH_DIR/custom/plugins"
 ZSH_CUSTOM_THEMES="$OH_MY_ZSH_DIR/custom/themes"
 ZSHRC_PATH="$HOME/.zshrc"
 STARSHIP_CONFIG_DEST="$HOME/.config/starship.toml"
-UTILS_PATH="$SCRIPT_DIR/../utils.sh"
+
 if [ "$INSTALL_MODE" = "web" ]; then
   if command -v curl >/dev/null 2>&1; then
     curl -fsSL "$UTILS_URL" -o /tmp/utils.sh
@@ -29,6 +28,9 @@ if [ "$INSTALL_MODE" = "web" ]; then
     exit 1
   fi
   UTILS_PATH="/tmp/utils.sh"
+else
+  SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]:-$0}")" && pwd)"
+  UTILS_PATH="$SCRIPT_DIR/../utils.sh"
 fi
 
 . "$UTILS_PATH"
