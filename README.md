@@ -6,6 +6,7 @@ Hi. I have a problem. An incessant need to automate everything.
 
 Anyway, this repo contains everything to configure my workflow.
 
+**Note: This is for Ubuntu/Wsl only. For now**  
 ## Prerequisites
 
 Before installing the configurations, you should set up the following to get the best visual experience:
